@@ -8,14 +8,14 @@ import com.example.madlevel5task2.model.Game
 interface GameDao {
 
     @Query("SELECT * FROM GameTable")
-    fun getGame(): LiveData<Game?>
+    fun getAllGames(): LiveData<List<Game>>
 
     @Query("DELETE FROM GameTable")
     suspend fun deleteAll()
 
-    @Insert
-    suspend fun insertGame(game: Game)
-
     @Delete
     suspend fun deleteGame(game: Game)
+
+    @Insert
+    suspend fun insertGame(game: Game)
 }
